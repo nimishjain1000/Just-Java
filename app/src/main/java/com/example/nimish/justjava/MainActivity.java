@@ -25,18 +25,26 @@ public class MainActivity extends ActionBarActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        String msg="Cost of "+display(quantity)+" is "+displayPrice(20 * quantity)+ "$";
 
         display(quantity);
-        displayPrice(2 * quantity);
+       // displayPrice(2 * quantity);
+        displayMessage(msg);
+    }
+    private void displayMessage(String msg)
+    {
+        TextView priceTextView=(TextView) findViewById(R.id.price_text_view);
+    priceTextView.setText(msg);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private int display(int number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
         quantityTextView.setText("" + number);
+        return number;
     }
     public void inc(View view) {
          quantity++;
@@ -57,9 +65,10 @@ public class MainActivity extends ActionBarActivity {
             toast.show();
         }
     }
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(
-                R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    private int displayPrice(int number) {
+        //TextView priceTextView = (TextView) findViewById(
+          //      R.id.price_text_view);
+        //priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        return number;
     }
 }
